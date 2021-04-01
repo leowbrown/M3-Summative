@@ -41,10 +41,10 @@
     <a href="/edit/{{post._id}}">Edit</a>
 
     <form action="/comment/{{post._id}}" method="post">
-        <textarea class='' name="content" placeholder="Comment"></textarea>
+        <textarea class='' name="comment" placeholder="Comment"></textarea>
         <button type="submit" class="">Save</button>
       </form>
-     <p>{{post.comments |e}}</p>
+     <p>{{post.comment |e}}</p>
     {% endfor %}
 
     <!-- comments form code -->

@@ -124,7 +124,7 @@ app.post('/comment/:id', (req, res) => {
         if(result){
             const new_comment = " " + req.body.comment;
             Post.findByIdAndUpdate(req.params.id, { $push: { comment:new_comment } }, { returnOriginal: false}).exec();
-            console.log(Post.comments);
+            console.log(Post.comment);
         }
         else {
             console.log(err);

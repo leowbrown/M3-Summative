@@ -22,7 +22,7 @@ const postSchema = new Schema({
         type:String,
         require:true
     },
-    comments: {
+    comment: {
         type:Array,
         require: true
     }
