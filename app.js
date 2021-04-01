@@ -6,7 +6,6 @@ const bodyParser =  require("body-parser");
 // we're calling in the mongoose schema user
 const User = require("./models/user");
 const Post = require("./models/post");
-const Comment = require("./models/comment");
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/js'));
 //we're setting up the strategy to provide security
@@ -119,35 +118,29 @@ app.get('/delete/:id', (req, res) => {
     })
 });
 
-// CREATE Comment
-app.post("/posts/:postId/comments", function(req, res) {
-    // INSTANTIATE INSTANCE OF MODEL
-    const comment = new Comment(req.body);
-  
-    // SAVE INSTANCE OF Comment MODEL TO DB
-    comment
-      .save()
-      .then(comment => {
-        return Post.findById(req.params.postId);
-      })
-      .then(post => {
-        post.comments.unshift(comment);
-        return post.save();
-      })
-      .then(post => {
-        res.redirect(`/`);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  });
-  
-// LOOK UP THE POST
-Post.findById(req.params.id).lean().populate('comments').then((post) => {
-    res.render('post-show', { post })
-  }).catch((err) => {
-    console.log(err.message)
-  })
+app.post('/comment/:id', (req, res) => {
+    Post.findById(req.params.id)
+    .then(result => {
+        if(result){
+            const new_comment = " " + req.body.comment;
+            Post.findByIdAndUpdate(req.params.id, { $push: { comment:new_comment } }, { returnOriginal: false}).exec();
+            console.log(Post.comments);
+        }
+        else {
+            console.log(err);
+            res.redirect('/');
+            
+        }
+    })
+    .then(update => {
+        res.redirect('/dashboard');
+    })
+    .catch(err => {
+        res.redirect('/dashboard');
+    });
+});
+
+
 
 // register function
 app.post("/",(req,res)=>{ 

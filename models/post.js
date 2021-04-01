@@ -21,6 +21,10 @@ const postSchema = new Schema({
     photo:{
         type:String,
         require:true
+    },
+    comments: {
+        type:Array,
+        require: true
     }
 },{
     timestamps: true

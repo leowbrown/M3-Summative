@@ -40,10 +40,11 @@
     <a href="/delete/{{post._id}}">Delete</a>
     <a href="/edit/{{post._id}}">Edit</a>
 
-    <form action="/posts/{{post._id}}/comments" method="post">
+    <form action="/comment/{{post._id}}" method="post">
         <textarea class='' name="content" placeholder="Comment"></textarea>
         <button type="submit" class="">Save</button>
       </form>
+     <p>{{post.comments |e}}</p>
     {% endfor %}
 
     <!-- comments form code -->
