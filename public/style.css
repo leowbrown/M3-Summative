@@ -66,6 +66,46 @@ h1 {
     height: 1200px;
 }
 
+.menu {
+    cursor: pointer;
+    width: 50px;
+}
+ 
+.sec-nav-ul {
+    list-style: none;
+    line-height: 90px;
+}
+ 
+.sec-nav-ul a {
+    text-decoration: none;
+    color: white;
+}
+ 
+ 
+/* //// media queries //// */
+ 
+@media (min-width:360px) and (max-width:950px){
+   .first-nav {
+       display: none;
+   }
+ 
+   .menu {
+       display: block;
+   }
+}
+ 
+@media (min-width:951px) and (max-width:2000px){
+ 
+   .menu {
+       display: none;
+   }
+ 
+   .menu-container {
+       display: none;
+   }
+}
+
+
 /* FOOTER STYLING */
 
 #lab_social_icon_footer {
@@ -114,6 +154,8 @@ h1 {
   }
 
   /* FOOTER ENDS */
+
+
 
 
 
