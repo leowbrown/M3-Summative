@@ -13,42 +13,48 @@
     <!-- //NAV// -->
     <div class="nav">
         <div class="col col-lg-8 col-md-6 col-sm-6">
-            <img class="logo pr-5" src="images/logo.png" alt="">
+            <a href="home.html"><img class="logo pr-5" src="images/logo.png" alt=""></a>
         </div>
       
         <div class="first-nav col col-lg-4 py-5">
-            <li class=" px-4">
+            <li class="px-4">
                 <a href="">HOME</a>
             </li>
-            <li class=" px-4">
+            <li class="px-4">
                 <a href="">LOGIN</a>
             </li>
-            <li class=" px-4">
+            <li class="px-4">
                 <a href="">SIGNUP</a>
             </li>
         </div>
   
-  
-        <div class="menu-container w-50 py-5 px-3">
-            <img class="menu float-end" src="images/bars-solid.svg" alt="">
+
+        <div class="menu-container w-50 px-3 pt-3 ">
+            <!-- <img class="menu float-end" src="images/bars-solid.svg" alt=""> -->
+            <button class="menu float-end" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+                <svg width="80" height="100" viewBox="0 0 100 100">
+                  <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                  <path class="line line2" d="M 20,50 H 80" />
+                  <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
         </div>
-  
-       
-       
     </div> 
+
+    
     <!-- NAV ENDS -->
 
     <!-- //second nav// -->
-    <div class="second-nav bg-dark py-5">
+    <div class="second-nav py-5">
         <ul class="sec-nav-ul text-center">
             <li>
-                <a href="">HOME</a>
+                <a class="borders" href="home.html">HOME</a>
             </li>
             <li>
-                <a href="">LOGIN</a>
+                <a class="borders" href="">LOGIN</a>
             </li>
             <li>
-                <a href="">SIGNUP</a>
+                <a class="borders" href="">SIGNUP</a>
             </li>
         </ul>
     </div>
@@ -62,88 +68,86 @@
 
 
     <!-- POSTS SECTION  -->
-    <section class="container" id="latest-posts">
+    <section class="m-5" id="latest-posts">
         <h1 class="text-center pt-5">LATEST POSTS</h1>
         <h2 class="text-center pb-5">YOU MUST BE LOGGED IN TO PURCHASE OR SELL PRODUCTS
         </h2>
 
-        <div class="row">
-            <div class="posts col">
-                <img class="img-thumbnail" src="images/outfit-1.jpg" alt="">
-
-                <div class="post-info text-center">
-                    <h2>ITEM NAME </h2>
-                    <h2>$.00 | SIZE</h2>
-                    <h2>VIEW BTN </h2>
-                </div>
-            </div>
-
-          
-            
-            <div class="posts col">
-                <img class="img-thumbnail" src="images/outfit-2.jpg" alt="">
-
-                <div class="post-info text-center">
-                    <h2>ITEM NAME </h2>
-                    <h2>$.00 | SIZE</h2>
-                    <h2>VIEW BTN </h2>
-                </div>
-            </div>
-
-        
-
-            <div class="posts col">
-                <img class="img-thumbnail" src="images/outfit-3.jpg" alt="">
-
-                <div class="post-info text-center">
-                    <h2>ITEM NAME </h2>
-                    <h2>$.00 | SIZE</h2>
-                    <h2>VIEW BTN </h2>
-                </div>
-            </div>
+        <div class="row clearfix">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
+            <div class="card bg-transparent border-0 m-3">
+              <img class="card-img-top" src="images/outfit-1.jpg" alt="posts">
+                <div class="card-body bg-transparent">
+                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
+                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
+                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
+              </div>
+          </div>
         </div>
-
-        <div class="row pt-5 mt-5">
-            <div class="posts col">
-                <img class="img-thumbnail" src="images/outfit-4.jpg" alt="">
-
-                <div class="post-info text-center">
-                    <h2>ITEM NAME </h2>
-                    <h2>$.00 | SIZE</h2>
-                    <h2>VIEW BTN </h2>
-                </div>
-            </div>
-
-          
-            
-            <div class="posts col">
-                <img class="img-thumbnail" src="images/outfit-5.jpg" alt="">
-
-                <div class="post-info text-center">
-                    <h2>ITEM NAME </h2>
-                    <h2>$.00 | SIZE</h2>
-                    <h2>VIEW BTN </h2>
-                </div>
-            </div>
-
-           
-
-            <div class="posts col">
-                <img class="img-thumbnail" src="images/outfit-6.jpg" alt="">
-
-                <div class="post-info text-center">
-                    <h2>ITEM NAME  </h2>
-                    <h2>$.00 | SIZE</h2>
-                    <h2>VIEW BTN  </h2>
-                </div>
-            </div>
-        </div> 
+    
+        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
+            <div class="card bg-transparent border-0 m-3">
+              <img class="card-img-top" src="images/outfit-2.jpg" alt="posts">
+                <div class="card-body bg-transparent">
+                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
+                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
+                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
+              </div>
+          </div>
+        </div>
+    
+        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
+            <div class="card bg-transparent border-0 m-3">
+              <img class="card-img-top" src="images/outfit-3.jpg" alt="posts">
+                <div class="card-body bg-transparent">
+                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
+                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
+                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
+              </div>
+          </div>
+        </div>
+    
+        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
+            <div class="card bg-transparent border-0 m-3">
+              <img class="card-img-top" src="images/outfit-4.jpg" alt="posts">
+                <div class="card-body bg-transparent">
+                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
+                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
+                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
+              </div>
+          </div>
+        </div>
+    
+        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
+            <div class="card bg-transparent border-0 m-3">
+              <img class="card-img-top" src="images/outfit-5.jpg" alt="posts">
+                <div class="card-body bg-transparent">
+                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
+                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
+                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
+              </div>
+          </div>
+        </div>
+    
+        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
+            <div class="card bg-transparent border-0 m-3">
+              <img class="card-img-top" src="images/outfit-6.jpg" alt="posts">
+                <div class="card-body bg-transparent">
+                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
+                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
+                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
+              </div>
+          </div>
+        </div>
+    
+    
+    </div>
+    
     </section>
     <!-- //END POSTS SECTION// -->
 
     <!-- FOOTER// -->
     <div class="mt-5 footer" id="lab_social_icon_footer">
-        <!-- <p class="py-3 text-white text-center">footer content</p> -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
         <div class="container">
             <div class="text-center center-block">

@@ -8,3 +8,7 @@ $('.menu').click(function(){
    $('.second-nav').toggle();
 })
 });
+
+$('.menu').click(function(){
+    $('#latest-posts').toggle();
+});
