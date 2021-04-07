@@ -172,3 +172,50 @@ app.get("/logout",(req,res)=>{  // logout function
     req.logout();
     res.redirect("/");
 });
+
+
+// edit post
+
+app.get('/edit/:id', (req, res) => {
+
+    Post.findById(req.params.id)
+    .then(result => {
+        if(result){
+            res.render('edit',{
+                post:result
+            });
+        }
+        else{
+            res.redirect('/');
+        }
+    })
+    .catch(err => {
+        res.redirect('/');
+    });
+});
+
+// update post
+
+app.post('/edit/:id', (req, res) => {
+    Post.findById(req.params.id)
+    .then(result => {
+        if(result){
+            result.item_name = req.body.item_name;
+            result.size = req.body.size;
+            result.price = req.body.price;
+            result.description = req.body.description;
+            result.photo = req.body.photo;
+            return result.save();
+        }
+        else{
+            console.log(err);
+            res.redirect('/');
+        }
+    })
+    .then(update => {
+        res.redirect('/dashboard');
+    })
+    .catch(err => {
+        res.redirect('/');
+    });
+});
