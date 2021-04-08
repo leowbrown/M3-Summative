@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
     <title>Document</title>
 </head>
 <body>
@@ -40,16 +41,31 @@
     <a href="/delete/{{post._id}}">Delete</a>
     <a href="/edit/{{post._id}}">Edit</a>
 
+    <!-- comments form code -->
+
     <form action="/comment/{{post._id}}" method="post">
         <textarea class='' name="comment" placeholder="Comment"></textarea>
         <button type="submit" class="">Save</button>
       </form>
      <p>{{post.comment |e}}</p>
+
+
+  
+    <!-- post modal (details) -->
+        <!-- modal open btn -->
+        <h2 class="modal-btn" id="{{post._id}}">More Info</h2>
+        
+        <!-- modal container -->
+        <div class="modal" id="{{post._id}}">
+            <h2> {{post.item_name |e}}</h2> 
+
+            <!-- modal close btn (&times; is html code for multiply/ X symbol) -->
+            <h3 class="close-btn">&times;</h3> 
+        </div>
+
     {% endfor %}
 
-    <!-- comments form code -->
-
-   
-
+    <script src="../script.js"></script>
+ 
 </body>
 </html>
