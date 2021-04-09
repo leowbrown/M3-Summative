@@ -154,6 +154,19 @@ h1 {
     stroke-width: 6;
   }
 
+  .modal {
+    display: none;
+}
+
+
+/*  style this class for modal display has the 
+    be set to something other than none */
+    
+.open {
+    display: block;
+}
+
+
  
  
 /* //// media queries //// */

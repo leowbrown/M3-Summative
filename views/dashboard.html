@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- item listing form -->
+
+    <form action="" method="POST">
+        <label for="item_name" class="">Item Name</label>
+        <input type="text" class="" name="item_name" placeholder="" id="item_name" required>
+
+        <label for="size" class="">Size</label>
+        <input type="text" class="" name="size" placeholder="" id="size" required>
+
+        <label for="price" class="">Price</label>
+        <input type="text" class="" name="price" placeholder="" id="price" required>
+
+        <label for="description" class="">Description</label>
+        <textarea type="text" class="" name="description" placeholder="" id="description" cols="30" rows="10" required></textarea>
+
+        <label for="photo" class="">Photo Link</label>
+        <input type="text" class="" name="photo" placeholder="" id="photo" required>
+        
+        <button class="">Submit</button>
+    </form>
+    
+
+    <!-- code for cards -->
+
+    {% for post in allpost %}
+
+    {{post.item_name |e}}
+    {{post.size |e}}
+    {{post.price |e}}
+    {{post.description |e}}
+    {{post.photo |e}}
+    <a href="/delete/{{post._id}}">Delete</a>
+    <a href="/edit/{{post._id}}">Edit</a>
+
+    <!-- comments form code -->
+
+    <form action="/comment/{{post._id}}" method="post">
+        <textarea class='' name="comment" placeholder="Comment"></textarea>
+        <button type="submit" class="">Save</button>
+      </form>
+     <p>{{post.comment |e}}</p>
+
+
+  
+    <!-- post modal (details) -->
+        <!-- modal open btn -->
+        <h2 class="modal-btn" id="{{post._id}}">More Info</h2>
+        
+        <!-- modal container -->
+        <div class="modal" id="{{post._id}}">
+            <h2> {{post.item_name |e}}</h2> 
+
+            <!-- modal close btn (&times; is html code for multiply/ X symbol) -->
+            <h3 class="close-btn">&times;</h3> 
+        </div>
+
+    {% endfor %}
+
+    <script src="../script.js"></script>
+ 
+</body>
+</html>
