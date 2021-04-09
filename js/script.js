@@ -7,6 +7,7 @@
 const modalBtn = document.querySelectorAll('.modal-btn');
 const modal = document.querySelectorAll('.modal');
 const closeBtn = document.querySelectorAll('.close-btn');
+const modalList = document.querySelector('.modal-list')
 
 ///////////////////////////
 ///                     ///
@@ -48,4 +49,4 @@ function closeModal() {
     }
 }
 
-closeModal()
+closeModal();

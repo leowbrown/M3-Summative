@@ -43,11 +43,8 @@
 
     <!-- comments form code -->
 
-    <form action="/comment/{{post._id}}" method="post">
-        <textarea class='' name="comment" placeholder="Comment"></textarea>
-        <button type="submit" class="">Save</button>
-      </form>
-     <p>{{post.comment |e}}</p>
+
+
 
 
   
@@ -57,10 +54,45 @@
         
         <!-- modal container -->
         <div class="modal" id="{{post._id}}">
-            <h2> {{post.item_name |e}}</h2> 
+        <div class="modal-con-outer">
+            <div class="modal-con-inner">
+                <div class="modal-con-nav">
+                    <h2 class="close-btn modal-close-btn">&times;</h2>
+                </div>
+                <div class="modal-img-con">
+                    <img src="{{post.photo |e}}" alt="" class="modal-img">
+                </div>
+                <div class="modal-subhead-con">
+                    <h3 class="modal-subhead">{{post.item_name |e}}</h3>
+                    <div class="modal-subhead-details">
+                        <h3 class="modal-subhead">{{post.price |e}}</h3>
+                        <h3 class="modal-subhead">{{post.size |e}}</h3>
+                    </div>
+                    <div class="modal-details-con">
+                        <h3 class="modal-subhead">More Details</h3>
+                        <p class="modal-bodycopy">{{post.description |e}}</p>
+                    </div>
+                    <div class="modal-comment-con">
+                        <h3 class="modal-subhead">Enter a Comment!</h3>
+                        <form action="/comment/{{post._id}}" method="post">
+                            <textarea class='' name="comment" placeholder="Comment"></textarea>
+                            <button type="submit" class="">Submit</button>
+                          </form>
+                        <div class="modal-comment">
+                            <ul class="modal-list">
+                                <li class="modal-list-item">{{post.comment[0] |e}}</li>
+                                <li class="modal-list-item">{{post.comment[1] |e}}</li>
+                                <li class="modal-list-item">{{post.comment[2] |e}}</li>
+                                <li class="modal-list-item">{{post.comment[3] |e}}</li>
+                                <li class="modal-list-item">{{post.comment[4] |e}}</li>
 
-            <!-- modal close btn (&times; is html code for multiply/ X symbol) -->
-            <h3 class="close-btn">&times;</h3> 
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
 
     {% endfor %}

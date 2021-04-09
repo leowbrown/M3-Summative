@@ -10,3 +10,47 @@
     display: block;
 }
 
+.modal-con-outer {
+    width: 120vw; 
+    height: 120vh;
+    position: absolute;
+    z-index: 5;
+    background: rgba(0, 0, 0, .5);
+    filter: blur();
+    top: -10vh;
+    left: -10vw;
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}   
+
+.modal-con-inner {
+    width: 15%;
+    height: 50%;
+    background: #EFEA63;
+
+}
+
+.modal-list-item {
+    list-style: none;
+    padding: .5rem 0;
+}
+
+.modal-con-nav {
+    height: 2rem;
+    font-weight: 100;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+}
+  
