@@ -1,5 +1,4 @@
 console.log("hello");
- 
 $('.second-nav').hide();
  
 $( document ).ready(function() {
@@ -12,8 +11,8 @@ $('.menu').click(function(){
 $('.menu').click(function(){
     $('#banner-img').toggle();
     $('#latest-posts').toggle();
+    $('#profile').toggle();
 });
-
 
 // leos js
 
@@ -68,3 +67,5 @@ function closeModal() {
 }
 
 closeModal()
+
+

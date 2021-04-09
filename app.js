@@ -50,7 +50,7 @@ const twig = require('twig');
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/js'));
-
+app.use(express.static(__dirname + '/images'));
 
 ////////////////////////
 ///                  ///
@@ -137,6 +137,10 @@ app.listen(port ,function (err) {
 app.get('/', (req, res) => {
     res.render('home');
 })
+
+app.get("/profile", (req,res) =>{
+    res.render("profile")
+    })
 
 
 /////////////////////
