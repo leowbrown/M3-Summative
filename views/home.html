@@ -75,78 +75,27 @@
 
 
     <!-- POSTS SECTION  -->
-    <section class="m-5" id="latest-posts">
+    <section class="m-5 fade-in" id="latest-posts">
         <h1 class="text-center pt-5">LATEST POSTS</h1>
         <h2 class="text-center pb-5">YOU MUST BE LOGGED IN TO PURCHASE OR SELL PRODUCTS
         </h2>
 
+       
+
         <div class="row clearfix">
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
+            {% for post in allpost %}
+        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mx-auto mt-5 card-con fade-in">
             <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-1.jpg" alt="posts">
+              <img class="card-img-top card-img" src="{{post.photo |e}}" alt="posts">
                 <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
+                        <h2 class="card-text text-center post-subhead post-info">{{post.item_name |e}}</h2>
+                        <h2 class="card-text text-center post-info">${{post.price |e}} | {{post.size |e}}</h2>
                         <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
+                </div>
+            </div>
         </div>
-    
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
-            <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-2.jpg" alt="posts">
-                <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
-        </div>
-    
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
-            <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-3.jpg" alt="posts">
-                <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
-        </div>
-    
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
-            <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-4.jpg" alt="posts">
-                <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
-        </div>
-    
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
-            <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-5.jpg" alt="posts">
-                <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
-        </div>
-    
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-3 col-xl-4 mx-auto mt-5">
-            <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-6.jpg" alt="posts">
-                <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
-        </div>
-    
+        {% endfor %}
+      
     
     </div>
     

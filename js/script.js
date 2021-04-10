@@ -26,6 +26,7 @@ const modalBtn = document.querySelectorAll('.modal-btn');
 const modal = document.querySelectorAll('.modal');
 const closeBtn = document.querySelectorAll('.close-btn');
 
+
 ///////////////////////////
 ///                     ///
 /// Open modal function ///
@@ -50,6 +51,7 @@ function cardModal() {
 
 cardModal();
 
+
 ////////////////////////////
 ///                      ///
 /// close modal function ///
@@ -69,3 +71,31 @@ function closeModal() {
 closeModal()
 
 
+/////////////////////////
+///                   ///
+/// fade in on scroll ///
+///                   ///
+/////////////////////////
+
+const postSection = document.querySelector('#latest-posts');
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOptions = {
+    rootMargin: "0px 0px -100px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return;
+        } else {
+            entry.target.classList.add('appear');
+            appearOnScroll.unobserve(entry.target);
+        }
+    })
+},
+appearOptions);
+
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+})
