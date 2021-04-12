@@ -99,3 +99,31 @@ appearOptions);
 faders.forEach(fader => {
     appearOnScroll.observe(fader);
 })
+
+
+///////////////////////
+///                 ///
+/// Login Hide/Show ///
+///                 ///
+///////////////////////
+
+const homePage = document.querySelector('.home-page');
+const loginPage = document.querySelector('.login-page');
+const registerPage = document.querySelector('.register-page');
+const loginBtn = document.querySelector('.login-btn');
+const registerBtn = document.querySelector('.register-btn');
+
+$(loginPage).hide();
+$(registerPage).hide();
+
+$(loginBtn).click(function(){
+    $(loginPage).show(300, 'swing');
+    $(registerPage).hide(300, 'swing');
+    $(homePage).hide(300, 'swing');
+})
+
+$(registerBtn).click(function(){
+    $(registerPage).show(300, 'swing');
+    $(loginPage).hide(300, 'swing');
+    $(homePage).hide(300, 'swing');
+})
