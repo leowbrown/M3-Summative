@@ -29,7 +29,7 @@ h1 {
 
 
 .nav {
-    background: #4F4A4A;
+    background: #181717;
     
 }
 
@@ -53,7 +53,7 @@ h1 {
 }
 
 .logo-img {
-    width: 200px;
+    width: 260px;
 }
 
 .posts {
@@ -70,22 +70,19 @@ h1 {
 
 .footer {
     height: 200px;
-    background:  #4F4A4A;
+    background:  #181717;
 }
 
 .banner-image{
-    background-image: url("../images/M3-BG-noW.jpg");
+    background-image: url("../M3-BG-noW.jpg");
     background-size: cover;
     width: 100%;
     height: 1200px;
 }
 
-
-
- 
 .sec-nav-ul {
     list-style: none;
-    line-height: 155px;
+    line-height: 108px;
     font-size: 35px;
     font-weight: bolder;
     transition: all 0.5s ease;
@@ -93,7 +90,7 @@ h1 {
 }
 
 .borders {
-    border-bottom: 3px solid #4F4A4A;
+    border-bottom: 3px solid #181717;
 }
 
 .second-nav {
@@ -104,7 +101,7 @@ h1 {
  
 .sec-nav-ul a {
     text-decoration: none;
-    color: #4F4A4A;
+    color: #181717;
 }
 
 .sec-nav-ul a:hover {
@@ -166,6 +163,138 @@ h1 {
     display: block;
 }
 
+.prof-picture {
+    width: 260px;
+}
+
+input[type=text] {
+    border: none;
+    border-bottom: 2px solid black;
+    background:#FFFEEF;
+  }
+
+ .buttons-div {
+     margin-left: 70px;
+ }
+
+
+ ol, ul {
+    padding-left: 0rem;
+}
+
+  /* LOGIN STYLING */
+
+
+  .login-box {
+    margin-top: 100px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+
+}
+
+.login-title {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #181717;
+}
+
+.login-form {
+    margin-top: 25px;
+    text-align: left;
+}
+
+input[type=text] {
+    border: none;
+    border-top: 0px;
+    border-bottom: 1px solid #181717;
+    border-radius: 0px;
+    font-weight: bold;
+    outline: 0;
+    margin-bottom: 20px;
+    padding-left: 0px;
+    color: #4F4A4A;
+}
+
+input[type=password] {
+    border: none;
+    border-bottom: 1px solid #181717;
+    border-top: 0px;
+    border-radius: 0px;
+    font-weight: bold;
+    outline: 0;
+    padding-left: 0px;
+    margin-bottom: 20px;
+    color: #181717;
+}
+
+.form-group {
+    margin-bottom: 40px;
+    outline: 0px;
+}
+
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0;
+    background-color: #1A2226;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0;
+}
+
+label {
+    margin-bottom: 0px;
+}
+
+.form-control-label {
+    font-size: 10px;
+    color: #181717;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-form {
+    background-color: #F2ED55;
+    color: #181717;
+    border-radius: 0px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    
+}
+
+.btn-form:hover {
+    background-color:#4F4A4A;
+    color: #F2ED55;
+}
+
+
+.login-button {
+    float: right;
+    padding-right: 0px;
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.login-text {
+    font-weight: bold;
+    text-align: left;
+    padding-left: 0px;
+    color: #4F4A4A;
+}
+
+
+
+ /* LOGIN STYLING ENDS */
+
+
 
  
  
@@ -189,7 +318,7 @@ h1 {
     }
 
     .banner-image {
-        background-image: url(../images/M3-BG-noW.jpg);
+        background-image: url(../M3-BG-noW.jpg);
         background-size: cover;
         width: 100%;
         height: 500px;
@@ -215,7 +344,7 @@ h1 {
 
 #lab_social_icon_footer {
     padding: 40px 0;
-    background-color: #4F4A4A;
+    background-color: #181717;
   }
   
   #lab_social_icon_footer a {
