@@ -38,7 +38,7 @@ h1 {
     display: inline-block;
 }
 
-.nav a:hover, .nav li:hover {
+.nav a:hover, .nav li:hover, .active {
     color: yellow;
     transition: all .5s ease;
 }
