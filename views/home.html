@@ -84,15 +84,53 @@
 
         <div class="row clearfix">
             {% for post in allpost %}
-        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mx-auto mt-5 card-con fade-in">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mx-auto mt-5 card-con modal-btn fade-in">
             <div class="card bg-transparent border-0 m-3">
               <img class="card-img-top card-img" src="{{post.photo |e}}" alt="posts">
                 <div class="card-body bg-transparent">
                         <h2 class="card-text text-center post-subhead post-info">{{post.item_name |e}}</h2>
                         <h2 class="card-text text-center post-info">${{post.price |e}} | {{post.size |e}}</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
+                        <h2 class="card-text text-center post-info modal-btn" id="{{post._id}}">More Details</h2>
                 </div>
             </div>
+        </div>
+
+        <!-- modal container -->
+        <div class="modal" id="{{post._id}}">
+        <div class="modal-con-outer">
+            <div class="modal-con-inner col-md-3 mx-auto">
+                <div class="modal-con-nav text-right col-12 pr-5">
+                    <h2 class="close-btn modal-close-btn">&times;</h2>
+                </div>
+                <div class="modal-img-con col-12">
+                    <img src="{{post.photo |e}}" alt="" class="modal-img col-12">
+                </div>
+                <div class="modal-subhead-con p-4 col-12">
+                    <h2 class="card-text post-subhead m-0 text-center col-12">{{post.item_name |e}}</h2>
+                    <div class="modal-subhead-details py-3 col-12">
+                        <h2 class="card-text text-center col-12">${{post.price |e}} | {{post.size |e}}</h2>
+                    </div>
+                    <div class="modal-details-con">
+                        <p class="modal-bodycopy col-12">{{post.description |e}}</p>
+                    </div>
+                    <div class="modal-comment-con py-3">
+                        <h2 class="modal-subhead">Leave a comment.</h2>
+                        <form action="/comment/{{post._id}}" method="post">
+                            <textarea name="comment" class="comment-section p-3 modal-bodycopy col-12" placeholder="Comment"></textarea>
+                            <button type="submit" class="">Submit</button>
+                          </form>
+                        <div class="modal-comment">
+                            <ul class="modal-list">
+                                <li class="modal-list-item modal-bodycopy">{{post.comment[0] |e}}</li>
+                                <li class="modal-list-item modal-bodycopy">{{post.comment[1] |e}}</li>
+                                <li class="modal-list-item modal-bodycopy">{{post.comment[2] |e}}</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
         {% endfor %}
       

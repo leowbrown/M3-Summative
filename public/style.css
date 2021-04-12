@@ -89,6 +89,64 @@ h1 {
   opacity: 1;
 }
 
+.modal-con-outer {
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  background: rgba( 0 , 0 , 0 , .4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-con-inner {
+  background: #FFFEEF;
+}
+
+.modal-img-con {
+  height: 50vh;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.modal-con-nav {
+  height: 0;
+  position: relative;
+  z-index: 10;
+  color: #212529;
+  padding: 0;
+}
+
+.modal-list {
+  list-style: none;
+}
+
+.comment-section {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  resize: none;
+}
+
+.close-btn {
+  font-size: 40px;
+  font-weight: 400;
+  text-align: right;
+  padding: 1.5rem 1.5rem 0 0;
+  line-height: 10px;
+}
+
+.modal-list-item {
+  padding: .5rem;
+}
+
+.modal-bodycopy{
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
 /* leo css ends */
 
 .post-info {
@@ -97,6 +155,7 @@ h1 {
 
 .post-subhead {
   font-weight: 600;
+  font-size: 25px;
 }
 
 .footer {
