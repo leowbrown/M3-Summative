@@ -117,7 +117,7 @@ app.use(passport.session());
 ///                 ///
 ///////////////////////
 
-const port = 3000;
+const port = 3005;
 
 app.listen(port ,function (err) {
     if(err){
@@ -134,9 +134,6 @@ app.listen(port ,function (err) {
 ///                 ///
 ///////////////////////
 
-app.get('/', (req, res) => {
-    res.render('home');
-})
 
 app.get("/profile", (req,res) =>{
     res.render("profile")
@@ -195,6 +192,30 @@ app.get('/dashboard', isLoggedIn, (req, res) => {
         if(result){
 
             res.render('dashboard',{    
+                allpost:result
+            });
+        }
+    })
+    .catch(err => {
+        if (err) throw err;
+    }); 
+});
+
+//////////////////////////
+///                    ///
+/// display home posts ///
+///                    ///
+//////////////////////////
+
+
+app.get('/', (req, res) => {
+    
+    Post.find()
+    .sort({createdAt: 'descending'})
+    .then(result => {
+        if(result){
+
+            res.render('home',{    
                 allpost:result
             });
         }
@@ -270,7 +291,7 @@ app.post("/",(req,res)=>{
     	req.body.password,function(err,user){
         if(err){
             console.log(err);
-        }s
+        }
         passport.authenticate("local")(req,res,function(){ 
             console.log(req);
             res.redirect("/");
@@ -278,7 +299,6 @@ app.post("/",(req,res)=>{
     })
 
 });
-
 
 
 ///////////////////////
@@ -353,3 +373,5 @@ app.post('/edit/:id', (req, res) => {
         res.redirect('/');
     });
 });
+
+

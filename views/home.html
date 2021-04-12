@@ -13,22 +13,15 @@
     <!-- //NAV// -->
     <div class="nav">
         <div class="col col-lg-8 col-md-6 col-sm-6">
-            <a href="home"><img class="logo pr-5" src="../logo.png" alt=""></a>
+            <a href="/"><img class="logo pr-5" src="../logo.png" alt=""></a>
         </div>
       
         <div class="nav-list col col-lg-4 py-5">
-            <li class="px-4">
+            <li class="px-4 active">
                 <a href="/">HOME</a>
             </li>
-            <li class="px-4">
-                <a href="">LOGIN</a>
-            </li>
-            <li class="px-4">
-                <a href="">SIGNUP</a>
-            </li>
-            <li class="px-4">
-                <a href="profile">PROFILE</a>
-            </li>
+            <li class="px-4 login-btn">LOGIN</li>
+            <li class="px-4 register-btn">SIGNUP</li>
         </div>
   
 
@@ -52,106 +45,179 @@
         <img class="logo-img" src="../app-logo-big.png" alt="">
         <ul class="sec-nav-ul text-center">
             <li>
-                <a class="borders" href="/">HOME</a>
+                <a class="" href="/">HOME</a>
             </li>
-            <li>
-                <a class="borders" href="login">LOGIN</a>
-            </li>
-            <li>
-                <a class="borders" href="signup">SIGNUP</a>
-            </li>
+            <li class="px-4 login-btn">LOGIN</li>
+            <li class="px-4 register-btn">SIGNUP</li>
             <li class="px-4">
-                <a class="borders" href="profile">PROFILE</a>
+                <a class="" href="profile">PROFILE</a>
             </li>
         </ul>
     </div>
     <!-- //second nav ends// -->
+    
+    <!-- HOME PAGE -->
+    <section class="home-page">
+        <!-- BANNER IMAGE -->
+        <section class="banner-image" id="banner-img">
 
-    <!-- BANNER IMAGE -->
-    <section class="banner-image" id="banner-img">
-
-    </section>
-    <!-- BANNER IMAGE ENDS -->
+        </section>
+        <!-- BANNER IMAGE ENDS -->
 
 
-    <!-- POSTS SECTION  -->
-    <section class="m-5" id="latest-posts">
-        <h1 class="text-center pt-5">LATEST POSTS</h1>
-        <h2 class="text-center pb-5">YOU MUST BE LOGGED IN TO PURCHASE OR SELL PRODUCTS
-        </h2>
+        <!-- POSTS SECTION  -->
+        <section class="m-5 fade-in" id="latest-posts">
+            <h1 class="text-center pt-5">LATEST POSTS</h1>
+            <h2 class="text-center pb-5">YOU MUST BE LOGGED IN TO PURCHASE OR SELL PRODUCTS
+            </h2>
 
-        <div class="row clearfix">
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2 mx-auto mt-5">
-            <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-1.jpg" alt="posts">
-                <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
+        
+
+            <div class="row clearfix">
+                {% for post in allpost %}
+            <div class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mx-auto mt-5 card-con modal-btn fade-in">
+                <div class="card bg-transparent border-0 m-3">
+                <img class="card-img-top card-img" src="{{post.photo |e}}" alt="posts">
+                    <div class="card-body bg-transparent">
+                            <h2 class="card-text text-center post-subhead post-info">{{post.item_name |e}}</h2>
+                            <h2 class="card-text text-center post-info">${{post.price |e}} | {{post.size |e}}</h2>
+                            <div class="row justify-content-center">
+                            <button class="col-4 btn-form modal-btn border-0 px-4 rounded-pill p-2 mt-1" id="{{post._id}}">More details</button>
+                            </div>
+                            <!-- <h2 class="card-text text-center post-info modal-btn" id="{{post._id}}">More Details</h2> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal container -->
+            <div class="modal" id="{{post._id}}">
+            <div class="modal-con-outer">
+                <div class="modal-con-inner col-md-3 mx-auto">
+                    <div class="modal-con-nav text-right col-12 pr-5">
+                        <h2 class="close-btn modal-close-btn">&times;</h2>
+                    </div>
+                    <div class="modal-img-con col-12">
+                        <img src="{{post.photo |e}}" alt="" class="modal-img col-12">
+                    </div>
+                    <div class="modal-subhead-con p-4 col-12">
+                        <h2 class="card-text post-subhead m-0 text-center col-12">{{post.item_name |e}}</h2>
+                        <div class="modal-subhead-details py-3 col-12">
+                            <h2 class="card-text text-center col-12">${{post.price |e}} | {{post.size |e}}</h2>
+                        </div>
+                        <div class="modal-details-con">
+                            <p class="modal-bodycopy col-12">{{post.description |e}}</p>
+                        </div>
+                        <div class="modal-comment-con py-3">
+                            <h2 class="modal-subhead">Leave a comment.</h2>
+                            <form action="/comment/{{post._id}}" method="post">
+                                <textarea name="comment" class="comment-section p-3 modal-bodycopy col-12" placeholder="Comment"></textarea>
+                                <button type="submit" class="btn-form btn-sm border-0 px-4 rounded-pill p-2">Submit</button>
+                            </form>
+                            <div class="modal-comment">
+                                <ul class="modal-list">
+                                    <li class="modal-list-item modal-bodycopy">{{post.comment[0] |e}}</li>
+                                    <li class="modal-list-item modal-bodycopy">{{post.comment[1] |e}}</li>
+                                    <li class="modal-list-item modal-bodycopy">{{post.comment[2] |e}}</li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+        
+        
         </div>
-    
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2 mx-auto mt-5">
-            <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-2.jpg" alt="posts">
-                <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
-        </div>
-    
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2 mx-auto mt-5">
-            <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-3.jpg" alt="posts">
-                <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
-        </div>
-    
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2 mx-auto mt-5">
-            <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-4.jpg" alt="posts">
-                <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
-        </div>
-    
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2 mx-auto mt-5">
-            <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-5.jpg" alt="posts">
-                <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
-        </div>
-    
-        <div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-2 col-xl-2 mx-auto mt-5">
-            <div class="card bg-transparent border-0 m-3">
-              <img class="card-img-top" src="../outfit-6.jpg" alt="posts">
-                <div class="card-body bg-transparent">
-                        <h2 class="card-text text-center post-info">ITEM NAME</h2>
-                        <h2 class="card-text text-center post-info">$.00 | SIZE</h2>
-                        <h2 class="card-text text-center post-info">VIEW BTN </h2>
-              </div>
-          </div>
-        </div>
-    
-    
-    </div>
-    
+        
+        </section>
     </section>
     <!-- //END POSTS SECTION// -->
+
+    <!-- //LOGIN SECTION -->
+    <section class="login-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-2"></div>
+                <div class="col-lg-6 col-md-8 login-box">
+                    <div class="col-lg-12 login-title">
+                        LOGIN
+                    </div>
+    
+                    <div class="col-lg-12 login-form">
+                        <div class="col-lg-12 login-form">
+                            <form action="/login" method="POST">
+                                <div class="form-group">
+                                    <label class="form-control-label">ENTER USERNAME</label>
+                                    <input type="text" name="username" class="form-control bg-transparent">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-control-label">ENTER PASSWORD</label>
+                                    <input type="password" name="password" class="form-control bg-transparent" i>
+                                </div>
+    
+                                <div class="col-lg-12 loginbttm">
+                                    <div class="col-lg-6 login-btm login-text">
+                                        <!-- Error Message -->
+                                    </div>
+                                    <div class="col-lg-6 login-btm login-button">
+                                        <button type="submit" class="btn-form border-0 px-4 rounded-pill p-2">Login</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-2"></div>
+                </div>
+            </div>
+    </section>
+
+    <!-- register page -->
+
+    <section class="register-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-2"></div>
+                <div class="col-lg-6 col-md-8 login-box">
+                    <div class="col-lg-12 login-title">
+                        REGISTER
+                    </div>
+    
+                    <div class="col-lg-12 login-form">
+                        <div class="col-lg-12 login-form">
+
+                            <form action="/" method="POST">
+                                <div class="form-group">
+                                    <label class="form-control-label">ENTER USERNAME</label>
+                                    <input type="text" name="username" class="form-control bg-transparent">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">ENTER EMAIL</label>
+                                    <input type="text" name="email" class="form-control bg-transparent" i>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">ENTER PASSWORD</label>
+                                    <input type="password" name="password" class="form-control bg-transparent" i>
+                                </div>
+    
+                                <div class="col-lg-12 loginbttm">
+                                    <div class="col-lg-6 login-btm login-text">
+                                        <!-- Error Message -->
+                                    </div>
+                                    <div class="col-lg-6 login-btm login-button">
+                                        <button type="submit" class="btn-form border-0 px-4 rounded-pill p-2">SIGN UP</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-2"></div>
+                </div>
+            </div>
+    </section>
 
     <!-- FOOTER// -->
     <div class="mt-5 footer" id="lab_social_icon_footer">
