@@ -117,7 +117,7 @@ app.use(passport.session());
 ///                 ///
 ///////////////////////
 
-const port = 3005;
+const port = 3000;
 
 app.listen(port ,function (err) {
     if(err){
@@ -192,7 +192,8 @@ app.get('/dashboard', isLoggedIn, (req, res) => {
         if(result){
 
             res.render('dashboard',{    
-                allpost:result
+                allpost:result,
+                user: req.user
             });
         }
     })
@@ -215,8 +216,10 @@ app.get('/', (req, res) => {
     .then(result => {
         if(result){
 
-            res.render('home',{    
-                allpost:result
+            res.render('home', {    
+                allpost:result,
+                user : req.user
+                
             });
         }
     })
@@ -308,7 +311,7 @@ app.post("/",(req,res)=>{
 ///////////////////////
 
 app.post("/login", passport.authenticate("local",{
-    successRedirect:"/dashboard",
+    successRedirect:"/",
     failureRedirect:"/"
 }));
 

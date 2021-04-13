@@ -112,6 +112,8 @@ const loginPage = document.querySelector('.login-page');
 const registerPage = document.querySelector('.register-page');
 const loginBtn = document.querySelector('.login-btn');
 const registerBtn = document.querySelector('.register-btn');
+const listBtn = document.querySelector('.listBtn');
+const listModal= document.querySelector('.listModal');
 
 $(loginPage).hide();
 $(registerPage).hide();
@@ -126,4 +128,11 @@ $(registerBtn).click(function(){
     $(registerPage).show(300, 'swing');
     $(loginPage).hide(300, 'swing');
     $(homePage).hide(300, 'swing');
+})
+
+$(listModal).hide();
+
+
+$(listBtn).click(function(){
+    $(listModal).show();
 })

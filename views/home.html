@@ -17,11 +17,23 @@
         </div>
       
         <div class="nav-list col col-lg-4 py-5">
-            <li class="px-4 active">
+            <li class="px-4">
                 <a href="/">HOME</a>
             </li>
+            {% if user %}
+            <li class="px-4">
+                <a href="profile">PROFILE</a>
+            </li>
+            <li class="px-4">
+                <a href="/dashboard">DASHBOARD</a>
+            </li>
+            <li class="px-4">
+                <a href="/logout">LOGOUT</a>
+            </li>
+            {% else %}
             <li class="px-4 login-btn">LOGIN</li>
             <li class="px-4 register-btn">SIGNUP</li>
+            {% endif %}
         </div>
   
 
@@ -47,11 +59,24 @@
             <li>
                 <a class="" href="/">HOME</a>
             </li>
-            <li class="px-4 login-btn">LOGIN</li>
-            <li class="px-4 register-btn">SIGNUP</li>
+            {% if user %}
+
             <li class="px-4">
                 <a class="" href="profile">PROFILE</a>
             </li>
+            <li class="px-4">
+                <a href="/dashboard">DASHBOARD</a>
+            </li>
+            <li class="px-4">
+                <a href="/logout">LOGOUT</a>
+            </li>
+
+            {% else %}
+
+            <li class="px-4 login-btn">LOGIN</li>
+            <li class="px-4 register-btn">SIGNUP</li>
+
+            {% endif %}
         </ul>
     </div>
     <!-- //second nav ends// -->
@@ -108,16 +133,15 @@
                             <p class="modal-bodycopy col-12">{{post.description |e}}</p>
                         </div>
                         <div class="modal-comment-con py-3">
-                            <h2 class="modal-subhead">Leave a comment.</h2>
                             <form action="/comment/{{post._id}}" method="post">
-                                <textarea name="comment" class="comment-section p-3 modal-bodycopy col-12" placeholder="Comment"></textarea>
-                                <button type="submit" class="btn-form btn-sm border-0 px-4 rounded-pill p-2">Submit</button>
+                                <textarea name="comment" class="comment-section p-3 modal-bodycopy col-12" placeholder="Leave a comment!"></textarea>
+                                <button type="submit" class="btn-form btn-sm border-0 px-4 rounded-pill my-2 px-2 py-1">Submit</button>
                             </form>
-                            <div class="modal-comment">
+                            <div class="modal-comment py-3">
                                 <ul class="modal-list">
-                                    <li class="modal-list-item modal-bodycopy">{{post.comment[0] |e}}</li>
-                                    <li class="modal-list-item modal-bodycopy">{{post.comment[1] |e}}</li>
-                                    <li class="modal-list-item modal-bodycopy">{{post.comment[2] |e}}</li>
+                                    <li class="modal-list-item modal-bodycopy py-1">{{post.comment[0] |e}}</li>
+                                    <li class="modal-list-item modal-bodycopy py-1">{{post.comment[1] |e}}</li>
+                                    <li class="modal-list-item modal-bodycopy py-1">{{post.comment[2] |e}}</li>
                                 </ul>
                             </div>
                             
@@ -232,6 +256,48 @@
         </div>
     </div>
     <!-- FOOTER ENDS -->
+
+
+    <div class="row">
+        <div class="col text-center">
+          <button class="btn btn-lg btn-danger listBtn" ></button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- small modal -->
+<div class="listModal">
+    <div class="modal-con-outer">
+        <div class="modal-con-inner col-md-3 mx-auto">
+            <div class="modal-con-nav text-right col-12 pr-5">
+                <h2 class="close-btn modal-close-btn">&times;</h2>
+            </div>
+            <div class="modal-subhead-con p-4 col-12">
+                <label class="dash" for="post_title">Post Title</label>
+                <input class="" type="text" name="title" id="post_title" required>
+                <br>
+                <label class="dash" for="post_title">Post Title</label>
+                <input class="" type="text" name="title" id="post_title" required>
+                <br>
+                <label class="dash" for="post_title">Post Title</label>
+                <input class="" type="text" name="title" id="post_title" required>
+                <br>
+                <label class="dash" for="post_title">Post Title</label>
+                <input class="" type="text" name="title" id="post_title" required>
+                <br>
+                <label class="dash" for="post_title">Post Title</label>
+                <input class="" type="text" name="title" id="post_title" required>
+                <br>
+                
+                <button type="submit" class="btn-form btn-sm border-0 px-4 rounded-pill my-2 px-2 py-1">Submit</button>
+                 </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
 <script src="../script.js"></script>
 </body>
 </html>
