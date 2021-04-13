@@ -110,8 +110,9 @@ faders.forEach(fader => {
 const homePage = document.querySelector('.home-page');
 const loginPage = document.querySelector('.login-page');
 const registerPage = document.querySelector('.register-page');
-const loginBtn = document.querySelector('.login-btn');
-const registerBtn = document.querySelector('.register-btn');
+const loginBtn = document.querySelectorAll('.login-btn');
+const registerBtn = document.querySelectorAll('.register-btn');
+const secondNav = document.querySelector('.second-nav');
 
 $(loginPage).hide();
 $(registerPage).hide();
@@ -120,10 +121,13 @@ $(loginBtn).click(function(){
     $(loginPage).show(300, 'swing');
     $(registerPage).hide(300, 'swing');
     $(homePage).hide(300, 'swing');
+    $(secondNav).hide(300, 'swing');
+
 })
 
 $(registerBtn).click(function(){
     $(registerPage).show(300, 'swing');
     $(loginPage).hide(300, 'swing');
     $(homePage).hide(300, 'swing');
+    $(secondNav).hide(300, 'swing');
 })

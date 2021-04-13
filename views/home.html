@@ -20,11 +20,20 @@
             <li class="px-4">
                 <a href="/">HOME</a>
             </li>
-            <li class="px-4 login-btn">LOGIN</li>
-            <li class="px-4 register-btn">SIGNUP</li>
+            {% if user %}
             <li class="px-4">
                 <a href="profile">PROFILE</a>
             </li>
+            <li class="px-4">
+                <a href="/dashboard">DASHBOARD</a>
+            </li>
+            <li class="px-4">
+                <a href="/logout">LOGOUT</a>
+            </li>
+            {% else %}
+            <li class="px-4 login-btn">LOGIN</li>
+            <li class="px-4 register-btn">SIGNUP</li>
+            {% endif %}
         </div>
   
 
@@ -50,11 +59,24 @@
             <li>
                 <a class="" href="/">HOME</a>
             </li>
-            <li class="px-4 login-btn">LOGIN</li>
-            <li class="px-4 register-btn">SIGNUP</li>
+            {% if user %}
+
             <li class="px-4">
                 <a class="" href="profile">PROFILE</a>
             </li>
+            <li class="px-4">
+                <a href="/dashboard">DASHBOARD</a>
+            </li>
+            <li class="px-4">
+                <a href="/logout">LOGOUT</a>
+            </li>
+
+            {% else %}
+
+            <li class="px-4 login-btn">LOGIN</li>
+            <li class="px-4 register-btn">SIGNUP</li>
+
+            {% endif %}
         </ul>
     </div>
     <!-- //second nav ends// -->
