@@ -99,10 +99,32 @@ h1 {
   width: 100vw;
   height: 100vh;
   backdrop-filter: blur(4px);
-  background: rgba( 0 , 0 , 0 , .8);
+  background: rgba( 0 , 0 , 0 , .6);
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.modal-close-btn a {
+  text-decoration: none;
+  color: #181717;
+
+}
+
+.card-footer-links a:hover {
+  font-weight: 500;
+  text-decoration: underline #181717;  
+}
+
+.card-footer-links a {
+  text-decoration: none;
+  color: #181717;
+  font-style: italic;
+  font-weight: 400;  
 }
 
 .modal-con-inner {
@@ -232,8 +254,8 @@ h1 {
  
 .sec-nav-ul {
     list-style: none;
-    line-height: 108px;
-    font-size: 35px;
+    line-height: 60px;
+    font-size: 20px;
     font-weight: bolder;
     transition: all 0.5s ease;
     
@@ -248,7 +270,7 @@ h1 {
     width: 100%;
     background: #FFFEEF ;
 }
- 
+
 .sec-nav-ul a {
     text-decoration: none;
     color: #181717;

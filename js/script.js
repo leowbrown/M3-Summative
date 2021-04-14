@@ -131,3 +131,27 @@ $(registerBtn).click(function(){
     $(homePage).hide(300, 'swing');
     $(secondNav).hide(300, 'swing');
 })
+
+///////////////////////////
+///                     ///
+/// list and edit modal ///
+///                     ///
+///////////////////////////
+
+const listBtn = document.querySelector('.list-btn');
+const listModal = document.querySelector('.listModal');
+const editModal = document.querySelector('.editModal');
+const closeListingBtn = document.querySelector('.modal-close-btn');
+
+$(listModal).hide();
+$(editModal).show();
+
+
+$(listBtn).click(function(){
+    $(listModal).show();
+})
+
+
+$(closeListingBtn).click(function(){
+    $(listModal).hide();
+})
