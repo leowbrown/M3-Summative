@@ -368,14 +368,13 @@ input[type=text] {
 
   .login-box {
     height: auto;
-    background-color: rgba(255, 255, 255, 0.5);
     text-align: center;
 
 }
 
 .login-title {
     margin-top: 15px;
-    text-align: center;
+    text-align: left;
     font-size: 30px;
     letter-spacing: 2px;
     margin-top: 15px;
