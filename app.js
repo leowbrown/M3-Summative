@@ -128,18 +128,6 @@ app.listen(port ,function (err) {
 })
 
 
-///////////////////////
-///                 ///
-/// Rendering pages ///
-///                 ///
-///////////////////////
-
-
-app.get("/profile", (req,res) =>{
-    res.render("profile")
-    })
-
-
 /////////////////////
 ///               ///
 /// Post creation ///
